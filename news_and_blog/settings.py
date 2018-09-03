@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tuk.apps.TukConfig',
     'bootstrap3',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
