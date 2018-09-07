@@ -1,26 +1,47 @@
 {% extends 'profile/base.html' %}
 {% load bootstrap3 %}
+{% load staticfiles %}
 
-    {% block content %}
-    <div class="container">
-      <div class="row">
-        <!-- Empty div -->
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-          {% if user.is_authenticated %}
-          <a href="{% url 'welcome' %}"> <button type="button" class="btn btn-success btn-sm" name="button">Home</button> </a>
-          <a href="/accounts/password/change/"> <button type="button" class="btn btn-sm btn-success" name="button"> Change Password</button> </a>
-          <a href="/Logout"> <button type="button" class="btn btn-success btn-sm" name="button">Log Out</button> </a>
-          <a href="{% url 'new-article' %}"> <button type="button" class="btn btn-md btn-danger" name="button">Create Article</button> </a>
-          {% else %}
-          <a class='btn btn-default' href="/accounts/login">Login</a>
-          {% endif %}
-        </div>
-        <!-- Empty div -->
-        <div class="col-md-4"></div>
-      </div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
 
-      <!-- Creating an editor -->
+    <title></title>
 
-    </div>
+    {% block scripts %}
+      {% bootstrap_css %}
     {% endblock %}
+
+  </head>
+  <body>
+
+
+        {% block content %}
+        <div class="container">
+          <div class="row">
+            <!-- Empty div -->
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              {% if user.is_authenticated %}
+              <a href="{% url 'welcome' %}"> <button type="button" class="btn btn-success btn-sm" name="button">Home</button> </a>
+              <a href="/accounts/password/change/"> <button type="button" class="btn btn-sm btn-success" name="button"> Change Password</button> </a>
+              <a href="/Logout"> <button type="button" class="btn btn-success btn-sm" name="button">Log Out</button> </a>
+              <a href="{% url 'new-article' %}"> <button type="button" class="btn btn-md btn-danger" name="button">Create Article</button> </a>
+              {% else %}
+              <a class='btn btn-default' href="/accounts/login">Login</a>
+              {% endif %}
+            </div>
+            <!-- Empty div -->
+            <div class="col-md-4"></div>
+          </div>
+
+
+
+        </div>
+        {% endblock %}
+
+
+
+  </body>
+</html>

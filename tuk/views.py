@@ -1,8 +1,15 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .forms import NewArticleForm
+from .models import Article
+# import datetime as dt
 
 # Create your views here.
+def news_today(request):
+    # date = dt.date.today()
+    news = Article.todays_news()
+    return render(request, 'all-news/today-news.html', { "news": news})
+
 @login_required(login_url='/accounts/login/')
 def welcome(request):
     return render(request, 'base.html')
